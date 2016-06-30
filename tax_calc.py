@@ -18,11 +18,15 @@ def taxes_payable(inc):
     print "Total taxes %i, income per month after taxes: %i" % (taxes, (inc - taxes)/12)
 
 
-print "Enter hourly rate:"
-my_rate = raw_input()
-annual_income = int(my_rate) * 45 * 40
-print "annual income for 45 week year, 40h week: %i" %(annual_income)
+print "Enter expected hourly rate:"
+my_rate = int(raw_input())
+print "Expected hours per week:"
+hours_week = int(raw_input())
+print "Expected weeks per year (norm is 45):"
+weeks = int(raw_input())
+annual_income = my_rate * weeks * hours_week
+print "annual income for %i week year, %ih week: %i" %(weeks, hours_week, annual_income)
 
-print "Enter your income:"
-my_income = raw_input()
-taxes_payable(int(my_income))
+# print "Enter your income:"
+# my_income = int(raw_input())
+taxes_payable(annual_income)
