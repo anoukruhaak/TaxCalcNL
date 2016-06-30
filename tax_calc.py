@@ -38,7 +38,3 @@ if raw_input() == "Yes":
     tax_freelance()
 else:
     tax_annual()
-
-
-# print "Enter your income:"
-# my_income = int(raw_input())
