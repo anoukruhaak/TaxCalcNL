@@ -17,16 +17,28 @@ def taxes_payable(inc):
         taxes = 0
     print "Total taxes %i, income per month after taxes: %i" % (taxes, (inc - taxes)/12)
 
+def tax_freelance():
+    print "Enter expected hourly rate:"
+    my_rate = int(raw_input())
+    print "Expected hours per week:"
+    hours_week = int(raw_input())
+    print "Expected weeks per year (norm is 45):"
+    weeks = int(raw_input())
+    annual_income = my_rate * weeks * hours_week
+    print "annual income for %i week year, %ih week: %i" %(weeks, hours_week, annual_income)
+    taxes_payable(annual_income)
 
-print "Enter expected hourly rate:"
-my_rate = int(raw_input())
-print "Expected hours per week:"
-hours_week = int(raw_input())
-print "Expected weeks per year (norm is 45):"
-weeks = int(raw_input())
-annual_income = my_rate * weeks * hours_week
-print "annual income for %i week year, %ih week: %i" %(weeks, hours_week, annual_income)
+def tax_annual():
+    print "Enter your yearly income:"
+    annual_income = int(raw_input())
+    taxes_payable(annual_income)
+
+print "Calculate annual income from hourly rate? (Yes | No)"
+if raw_input() == "Yes":
+    tax_freelance()
+else:
+    tax_annual()
+
 
 # print "Enter your income:"
 # my_income = int(raw_input())
-taxes_payable(annual_income)
